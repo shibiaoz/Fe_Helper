@@ -1,4 +1,4 @@
-// var Test = {};
+ // var Test = {};
 // window.addEventListener('load',function  () {
 // 	var _$ = function  (selector) {
 // 		return document.querySelector(selector);
