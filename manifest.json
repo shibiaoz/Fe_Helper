@@ -34,7 +34,7 @@
             "js": ["js/content.js"]
         }
     ],
-    "web_accessible_resources": [ "js/test.js" ],
+    "web_accessible_resources": [ "js/extensionInsertInto.js" ],
     "permissions": [
         "contextMenus",
         "activeTab",

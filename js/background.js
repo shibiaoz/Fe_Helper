@@ -46,7 +46,7 @@ chrome.tabs.onUpdated.addListener(checkForValidUrl);
 
 // send message from background to content script
 //chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {  chrome.tabs.sendMessage(tabs[0].id, {cmd: "mycmd"}, function(response) {    console.log(response);  }); });
-console.log(tabsArr,"==array==")
+//console.log(tabsArr,"==array==");
 // chrome.tabs.sendMessage(tabsArr[0].id,{cmd:'mycmd'},function  (response) {
 // 		console.log(response);
 // });

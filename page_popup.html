@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>TIE BA FE HELPER </title>
-	<script type="text/javascript" src="popup.js"></script>
 	<style type="text/css">
 		body,.body{
 			margin: 0;
@@ -29,7 +28,7 @@
 		.display-block{
 			display: block;
 		}
-		.btn{
+		.btn,.add_btn{
 			  margin: 10px auto;
 			  width: 100px;
 			  height: 30px;
@@ -57,11 +56,23 @@
 		</header>
 		<section class="display-block p_a_20">
 			<select id="sel" class="sel w_160 h_40 f-20">
-				<option value="maling____aaaa">maling</option>
+				<!-- <option value="maling____aaaa">maling</option>
 				<option value="小波波____aaaa">小波波</option>
+				<option value="abc____aaaa">abc</option> -->
 			</select>
 		</section>
-		<button class="btn display-block">快速切换</button>
+		<button class="btn j_Loginbtn display-block">快速切换</button>
+		<section>
+			<p>
+				<input type="text" placeholder="用户名" id="userName">
+				<input type="password" placeholder="密码" id="userPwd">
+				<button class="j_add_btn btn display-block">增加</button>	
+				<button class="j_remove_btn btn display-block">remove all</button>
+			</p>
+		</section>
+	
 	</div>
+	
+	<script type="text/javascript" src="popup.js"></script>
 </body>
 </html>
