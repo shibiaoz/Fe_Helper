@@ -1,5 +1,5 @@
 var debug = true;
-var timerzzz = null;
+var timer = null;
 var chromelen = 0;
 var __ex_name = $.getPageData('user.user_name');
 var _knight_user = localStorage.getItem('_knight_user');
@@ -14,29 +14,6 @@ if(debug){
     }
 }
 
-// setTimeout(function() {
-// 	fillIn();
-// }, 4000);
-// fillIn();
-// function _logout () {
-// 	var version_bd = 0;
-//     var user_name_leave;
-//     try {
-//         PageData.user ? (user_name_leave = PageData.user.name) : (user_name_leave = PageData.user_info.name);
-//     } catch (e) {
-//         user_name_leave = "";
-//     }
-//     try {
-//         version_bd = "baidubrowser.tieba" == window.external.GetVersion('version') ? true : null;
-//     } catch (e) {
-//         version_bd = null;
-//     }
-//     if (!$.cookie('baidu_broswer_setup_' + user_name_leave) && !version_bd || $.cookie('baidu_broswer_setup_' + user_name_leave) === "NaN") {
-//         $.cookie('baidu_broswer_setup_' + user_name_leave, 0);
-//     }
-//     TbCom.process('User', 'logout');
-// 	_login();
-// }
 function _login () {
 	_.Module.use('pcommon/component/LoginDialog', ['', '']);
 }
@@ -59,14 +36,10 @@ function fillIn () {
 // 这里为啥没有clear掉，待会好好研究下,擦，逗比了，函数里面用到变量我在这赋值，然后在函数里第二次覆盖
 //timer的时候，实际上在外部已经把timer赋值为null，所以clearInterval清楚不掉
 function timeCheck () {
-    // setTimeout(function() {
-    //     fillIn();
-    // }, 2000);
-    timerzzz = setInterval(function  () {
-        console.log('--------------');
+    timer = setInterval(function  () {
         chromelen = $('#passport-login-pop').size();
         if(chromelen>0){
-            clearInterval(timerzzz);
+            clearInterval(timer);
             fillIn();
         }
     },100)

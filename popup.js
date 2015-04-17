@@ -1,34 +1,3 @@
- // var Test = {};
-// window.addEventListener('load',function  () {
-// 	var _$ = function  (selector) {
-// 		return document.querySelector(selector);
-// 	}
-// 	var _$s = function  (selector) {
-// 		return document.querySelectorAll(selector);
-// 	}
-// 	var btn  =  document.querySelector('.btn');
-
-// 	btn.addEventListener('click',function  () {
-// 		var value = _$('#sel').value;
-// 		var name = value && value.split('-')[0];
-// 		var pwd = value && value.split('-')[1];
-// 		console.log(name,'=======',pwd);
-// 		Test['name'] = name;
-// 		//chrome.runtime.sendMessage
-// 		chrome.runtime.sendMessage({name:name,pwd:pwd, error:"获取文章信息失败."});
-// 	},false);
-
-// 	//btn.addEventListener('click',function(){console.log(name,'------')},false);
-// 	// import jquery
-// 	// in page_action html if import js
-// 	//js code can run  why ?
-// 	// $('.btn').on('click',function  () {
-// 	// 	var value = $('#sel').val();
-// 	// 	var name = value && value.split('-')[0];
-// 	// 	var pwd = value && value.split('-')[1];
-// 	// });
-// },false)
-
 // some function utils
 var userList = [
 	{name:'maling',pwd:'aaaa'},
@@ -64,7 +33,6 @@ var getUserList = function(){
 	var oSel = _$('#sel');
 	var str = '';
 	chrome.storage.local.get('userList',function(items){
-		console.log(items,"===============",items['userList']);
 		items && items['userList'] && (items['userList'].length >0) && (tmpUserList = items['userList']);
 		console.log(tmpUserList)
 		if(tmpUserList.length < 1 ){
@@ -159,11 +127,6 @@ window.addEventListener('load',function  () {
 	btn.addEventListener('click',function  () {
 		toLogin =  getToLoginInfo();
 		toLoginAction(toLogin);
-		// if (toLogin) {
-		// 	getNowloginInfo();
-		// 	chrome.storage.local.set(toLogin);
-		// }
-		//chrome.storage.local.set({'keyName': new Date().getTime()});
 	},false);
 	getUserList();
 	storeUserInfo();
