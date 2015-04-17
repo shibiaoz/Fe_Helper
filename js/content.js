@@ -24,6 +24,7 @@ chrome.storage.onChanged.addListener(function(changes, areaName) {
     // chrome.storage.local.get('keyName', function(items) {
     //     console.log(items,"============");
     // });
+
     chrome.storage.local.get('toLogin', function(items) {
         if(!_nb.isEmptyObject(items) && !_nb.isEmptyObject(items['toLogin'])){
             if(!_nb.isEmptyObject(items['toLogin']) && items['toLogin']['name']){
