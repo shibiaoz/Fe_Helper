@@ -62,9 +62,15 @@ var storeUserInfo = function(){
 		user = oUser.value;
 		pwd = oPwd.value;
 		var userList = [];
+			oldUserList = [];
 		chrome.storage.local.get('userList',function(items){
 			items && items['userList'] && (oldUserList=items['userList']);
-			oldUserList.push({name:user,pwd:pwd});
+			oldUserList.forEach(function (value,index) {
+				if(value && value.name && value.name == user){
+					oldUserList.splice(index,1);//如果重复了，删掉
+				}
+			});
+		    oldUserList.push({name:user,pwd:pwd});
 			chrome.storage.local.set({'userList':oldUserList},function(){
 				console.log('set storage success');
 				// call getUserList 
