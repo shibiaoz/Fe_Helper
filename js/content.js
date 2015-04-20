@@ -16,11 +16,11 @@ if(localStorage.getItem('__cookieValue')=='1' || localStorage.getItem('__cookieV
 }
 var __init = function () {
     chrome.storage.onChanged.addListener(function(changes, areaName) {
-        debugger;
+        //debugger;
         if(changes.__cookieValue){
             //cookie changes
             chrome.storage.local.get('__cookieValue', function(items) {
-                console.log(items,"======================s");
+               // console.log(items,"======================s");
                 var tmpCookie = '';
                 if(!_nb.isEmptyObject(items) && !_nb.isEmptyObject(items['__cookieValue'])){
                     tmpCookie  = items['__cookieValue'].split('___')[1];
