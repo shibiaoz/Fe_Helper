@@ -1,16 +1,4 @@
 
-// chrome.runtime.sendMessage({error:"content 第一次访问"});
-
-// chrome.runtime.onMessage.addListener(function(request, sender, sendRequest){
-// 	console.log('=================content script =============');
-// 	console.dir(sender);
-// });
-// get message from background 
-// chrome.runtime.onMessage.addListener(  function(request, sender, sendResponse) { 
-// console.log(sender.tab ?  "from a content script:" + sender.tab.url:"from the extension");
-//  if (request.cmd== "mycmd") 
-//       sendResponse( "ok"); 
-//   });
 var _nb = {}
 _nb.isEmptyObject = function(obj) {
     for(var prop in obj){
@@ -18,13 +6,42 @@ _nb.isEmptyObject = function(obj) {
     }
     return true;
 }
+ var alertTips = ['','沙盒','小流量']
+if(localStorage.getItem('__cookieValue')=='1' || localStorage.getItem('__cookieValue')=='2'){
+    alert(alertTips[parseInt(localStorage.getItem('__cookieValue'))]);
+}else{
+    // -1 
+    localStorage.setItem('__cookieValue',undefined);
+}
 chrome.storage.onChanged.addListener(function(changes, areaName) {
+<<<<<<< HEAD
     // Do whatever you want with the changes.
     //keyName
     // chrome.storage.local.get('keyName', function(items) {
     //     console.log(items,"============");
     // });
     if(changes && !changes.time){
+=======
+    if(changes.__cookieValue){
+        //cookie changes
+        chrome.storage.local.get('__cookieValue', function(items) {
+            console.log(items,"======================s");
+            var tmpCookie = '';
+            if(!_nb.isEmptyObject(items) && !_nb.isEmptyObject(items['__cookieValue'])){
+                tmpCookie  = items['__cookieValue'].split('___')[1];
+                localStorage.setItem('__cookieValue',tmpCookie);
+                // var alertTips = ['','沙盒','小流量']
+                // if(localStorage.getItem('__cookieValue')!='-1'){
+                //     alert(alertTips[parseInt(localStorage.getItem('__cookieValue'))]);
+                // }
+                extensionInsertInto();
+            }
+        });
+        return;
+    }
+
+    if(!changes.time){
+>>>>>>> branch_2015_417
         return;
     }
     chrome.storage.local.get('toLogin', function(items) {
@@ -32,9 +49,9 @@ chrome.storage.onChanged.addListener(function(changes, areaName) {
             if(!_nb.isEmptyObject(items['toLogin']) && items['toLogin']['name']){
                 localStorage.setItem('_knight_user',items['toLogin']['name']);
                 localStorage.setItem('_knight_user_pwd',items['toLogin']['pwd']);
+                extensionInsertInto();
             }
         }
-        extensionInsertInto()
     });
 });
 // Initialization of the popup (print initial information?)

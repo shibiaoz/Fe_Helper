@@ -70,7 +70,11 @@ var storeUserInfo = function(){
 					oldUserList.splice(index,1);//如果重复了，删掉
 				}
 			});
+<<<<<<< HEAD
 			oldUserList.push({name:user,pwd:pwd});
+=======
+		    oldUserList.push({name:user,pwd:pwd});
+>>>>>>> branch_2015_417
 			chrome.storage.local.set({'userList':oldUserList},function(){
 				console.log('set storage success');
 				// call getUserList 
@@ -98,6 +102,25 @@ var getNowloginInfo = function (){
     	console.log(items);
 	});
 }
+
+var toOnLineTest = function () {
+	var oBtn= _$s('.j_cookie');
+	var cookieValue = '';
+	Array.prototype.forEach.call(oBtn,function (value,index) {
+		value.addEventListener('click',function (event) {
+			//event.srcElement.dataset;
+			if(event.srcElement.dataset.cookie=="" || event.srcElement.dataset.cookie==undefined){
+				return;
+			}
+			chrome.storage.local.set({'__cookieValue':new Date().getTime()+'___'+event.srcElement.dataset.cookie},function(){
+				console.log('set storage cookieValue success');
+			});
+		},false);
+	});
+	/*oBtn.forEach(function(value,index){
+		console.log(value);
+	});*/
+} 
 
 var toLoginAction = function (toLogin) {
 	if(!toLogin){
@@ -137,4 +160,5 @@ window.addEventListener('load',function  () {
 	getUserList();
 	storeUserInfo();
 	removeUserInfo();
+	toOnLineTest();
 },false);
