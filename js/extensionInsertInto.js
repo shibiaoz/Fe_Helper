@@ -4,8 +4,7 @@ var chromelen = 0;
 var __ex_name = $.getPageData('user.user_name');
 var _knight_user = localStorage.getItem('_knight_user');
 var _knight_user_pwd = localStorage.getItem('_knight_user_pwd');
-var __cookieValue =parseInt(localStorage.getItem('
-    '));
+var __cookieValue =parseInt(localStorage.getItem('__cookieValue'));
 debugger;
 if([-1,1,2].indexOf(
     ) > -1 && localStorage.getItem('__cookieHasSeted')=='false'){
