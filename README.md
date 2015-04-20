@@ -16,7 +16,10 @@
  - 预览机麻烦，只需在当前页面切换状态，无需手动刷新
 
 ## 如何安装 ##
-
+### 方式1 ###
+ 1. chrome url :  chrome://extensions/ ，找到download下的output中crx文件
+ 
+### 方式2 ###
  1. 安装，clone或者download压缩包，chrome url :  chrome://extensions/
  2. 加载解压之后的文件夹
  3. ![此处输入图片的描述][2]
