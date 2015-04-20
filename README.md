@@ -22,4 +22,4 @@
  3. ![此处输入图片的描述][1]
 
 
-  [1]: https://github.com/shibiaoz/Fe_Helper/blob/master/images/icon128.png?raw=true
+  [1]: https://github.com/shibiaoz/Fe_Helper/blob/master/images/BaiduHi_2015-4-20_17-37-22.png?raw=true
