@@ -1,4 +1,4 @@
-![此处输入图片的描述][1]
+![。。。][1]
 **Fe_Helper 小助手**
 ## 使用场景 ##
 
@@ -19,7 +19,8 @@
 
  1. 安装，clone或者download压缩包，chrome url :  chrome://extensions/
  2. 加载解压之后的文件夹
- 3. ![此处输入图片的描述][1]
+ 3. ![此处输入图片的描述][2]
 
 
-  [1]: https://github.com/shibiaoz/Fe_Helper/blob/master/images/BaiduHi_2015-4-20_17-37-22.png?raw=true
+  [1]: https://github.com/shibiaoz/Fe_Helper/blob/master/images/icon128.png?raw=true
+  [2]: https://github.com/shibiaoz/Fe_Helper/blob/master/images/BaiduHi_2015-4-20_17-37-22.png?raw=true
