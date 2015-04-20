@@ -4,9 +4,11 @@ var chromelen = 0;
 var __ex_name = $.getPageData('user.user_name');
 var _knight_user = localStorage.getItem('_knight_user');
 var _knight_user_pwd = localStorage.getItem('_knight_user_pwd');
-var __cookieValue =parseInt(localStorage.getItem('__cookieValue'));
+var __cookieValue =parseInt(localStorage.getItem('
+    '));
 debugger;
-if([-1,1,2].indexOf(__cookieValue) > -1 && localStorage.getItem('__cookieHasSeted')=='false'){
+if([-1,1,2].indexOf(
+    ) > -1 && localStorage.getItem('__cookieHasSeted')=='false'){
     // 修改cookie
     if(__cookieValue==-1){
         clearCookie('pub_env');
