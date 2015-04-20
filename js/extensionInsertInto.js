@@ -4,15 +4,36 @@ var chromelen = 0;
 var __ex_name = $.getPageData('user.user_name');
 var _knight_user = localStorage.getItem('_knight_user');
 var _knight_user_pwd = localStorage.getItem('_knight_user_pwd');
-if(debug){
-     _login();
-    timeCheck();
+var __cookieValue =parseInt(localStorage.getItem('__cookieValue'));
+debugger;
+if([-1,1,2].indexOf(__cookieValue) > -1){
+    // 修改cookie
+    if(__cookieValue==-1){
+        clearCookie('pub_env');
+    }else{
+        setCookie('pub_env',__cookieValue);
+    }
+    setTimeout(function() {
+        window.location.reload();
+    }, 1000);
+    
 }else{
-    if(__ex_name != _knight_user){    
-        _login();
+    accountSwitch(true);
+}
+
+
+function accountSwitch(debug) {
+    if(debug){
+         _login();
         timeCheck();
+    }else{
+        if(__ex_name != _knight_user){    
+            _login();
+            timeCheck();
+        }
     }
 }
+
 
 function _login () {
 	_.Module.use('pcommon/component/LoginDialog', ['', '']);
@@ -44,3 +65,28 @@ function timeCheck () {
         }
     },100)
 }
+// cookie copy
+var initCookie = function(name){
+        var state = document.getElementById(name);
+        var url_value = $.tb.getSearch(name);
+        if (url_value) {
+            if (parseInt(url_value) === 0) {
+                clearCookie(name);
+            } else {
+                setCookie(name,url_value);
+            }
+            
+        }
+        state.innerHTML = $.cookie(name) === null ? '空' : $.cookie(name);
+    }
+function setCookie (name,value) {
+    $.cookie(name, value,{'domain':'tieba.baidu.com','path':'/','expires': 1});
+   // document.getElementById(name).innerHTML = $.cookie(name) === null ? '空' : $.cookie(name);
+    //$(".introduce dd").removeClass().eq(value-1).addClass("currsel");
+}
+function clearCookie (name) {
+    $.cookie(name, '', {'domain':'tieba.baidu.com','path':'/','expires': -1});
+   // document.getElementById(name).innerHTML = $.cookie(name) === null ? '空' : $.cookie(name);
+    //$(".introduce dd").removeClass("currsel");
+}
+//initCookie("pub_env");

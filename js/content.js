@@ -6,8 +6,32 @@ _nb.isEmptyObject = function(obj) {
     }
     return true;
 }
+ var alertTips = ['','沙盒','小流量']
+if(localStorage.getItem('__cookieValue')=='1' || localStorage.getItem('__cookieValue')=='2'){
+    alert(alertTips[parseInt(localStorage.getItem('__cookieValue'))]);
+}else{
+    // -1 
+    localStorage.setItem('__cookieValue',undefined);
+}
 chrome.storage.onChanged.addListener(function(changes, areaName) {
-    console.log(areaName,"==========");
+    if(changes.__cookieValue){
+        //cookie changes
+        chrome.storage.local.get('__cookieValue', function(items) {
+            console.log(items,"======================s");
+            var tmpCookie = '';
+            if(!_nb.isEmptyObject(items) && !_nb.isEmptyObject(items['__cookieValue'])){
+                tmpCookie  = items['__cookieValue'].split('___')[1];
+                localStorage.setItem('__cookieValue',tmpCookie);
+                // var alertTips = ['','沙盒','小流量']
+                // if(localStorage.getItem('__cookieValue')!='-1'){
+                //     alert(alertTips[parseInt(localStorage.getItem('__cookieValue'))]);
+                // }
+                extensionInsertInto();
+            }
+        });
+        return;
+    }
+
     if(!changes.time){
         return;
     }

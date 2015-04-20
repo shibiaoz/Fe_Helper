@@ -99,6 +99,25 @@ var getNowloginInfo = function (){
 	});
 }
 
+var toOnLineTest = function () {
+	var oBtn= _$s('.j_cookie');
+	var cookieValue = '';
+	Array.prototype.forEach.call(oBtn,function (value,index) {
+		value.addEventListener('click',function (event) {
+			//event.srcElement.dataset;
+			if(event.srcElement.dataset.cookie=="" || event.srcElement.dataset.cookie==undefined){
+				return;
+			}
+			chrome.storage.local.set({'__cookieValue':new Date().getTime()+'___'+event.srcElement.dataset.cookie},function(){
+				console.log('set storage cookieValue success');
+			});
+		},false);
+	});
+	/*oBtn.forEach(function(value,index){
+		console.log(value);
+	});*/
+} 
+
 var toLoginAction = function (toLogin) {
 	if(!toLogin){
 		return;
@@ -137,4 +156,5 @@ window.addEventListener('load',function  () {
 	getUserList();
 	storeUserInfo();
 	removeUserInfo();
+	toOnLineTest();
 },false);

@@ -30,7 +30,7 @@
 		}
 		.btn,.add_btn{
 			  margin: 10px auto;
-			  width: 100px;
+			  width: 80px;
 			  height: 30px;
 			  background-color: #3681f1;
 			  line-height: 28px;
@@ -40,12 +40,25 @@
 			  font-family: "Microsoft YaHei";
 			  font-size: 16px;
 			  border-radius: 8px;
+			  cursor: pointer;
 		}
 		.text-center{
 			text-align: center;
 		}
 		.f-20{
 			font-size: 20px;
+		}
+		.color-red{
+			color: red;
+		}
+		.bg-color-green{
+			background: green;
+		}
+		.bg-color-yellow{
+			background: rgba(0, 81, 255, 0.63);
+		}
+		.pc_online{
+			margin-bottom: -14px;
 		}
 	</style>
 </head>
@@ -64,8 +77,15 @@
 			<p>
 				<input type="text" placeholder="用户名" id="userName">
 				<input type="password" placeholder="密码" id="userPwd">
-				<button class="j_add_btn btn display-block">增加</button>	
-				<button class="j_remove_btn btn display-block">remove all</button>
+				<button class="j_add_btn btn ">增加</button>	
+				<button class="j_remove_btn btn ">remove all</button>
+			</p>
+			<hr>
+			<h3 class="color-red pc_online">PC</h3>
+			<p>
+				<button class="j_cookie btn bg-color-green" data-cookie="1">预览机</button>	
+				<button class="j_cookie btn bg-color-yellow" data-cookie="2">小流量</button>	
+				<button class="j_cookie btn bg-color-yellow" data-cookie="-1">清除</button>	
 			</p>
 		</section>
 	
