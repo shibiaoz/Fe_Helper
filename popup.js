@@ -70,11 +70,7 @@ var storeUserInfo = function(){
 					oldUserList.splice(index,1);//如果重复了，删掉
 				}
 			});
-<<<<<<< HEAD
-			oldUserList.push({name:user,pwd:pwd});
-=======
 		    oldUserList.push({name:user,pwd:pwd});
->>>>>>> branch_2015_417
 			chrome.storage.local.set({'userList':oldUserList},function(){
 				console.log('set storage success');
 				// call getUserList 

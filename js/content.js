@@ -14,14 +14,6 @@ if(localStorage.getItem('__cookieValue')=='1' || localStorage.getItem('__cookieV
     localStorage.setItem('__cookieValue',undefined);
 }
 chrome.storage.onChanged.addListener(function(changes, areaName) {
-<<<<<<< HEAD
-    // Do whatever you want with the changes.
-    //keyName
-    // chrome.storage.local.get('keyName', function(items) {
-    //     console.log(items,"============");
-    // });
-    if(changes && !changes.time){
-=======
     if(changes.__cookieValue){
         //cookie changes
         chrome.storage.local.get('__cookieValue', function(items) {
@@ -41,7 +33,6 @@ chrome.storage.onChanged.addListener(function(changes, areaName) {
     }
 
     if(!changes.time){
->>>>>>> branch_2015_417
         return;
     }
     chrome.storage.local.get('toLogin', function(items) {
